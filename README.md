@@ -3,6 +3,16 @@
 
 Um sistema moderno de pontuações de surfe.
 
+## Ferraments utilizadas
+
+- Fastify
+- Typescript
+- Husky
+- Eslint
+- Babel
+- MySQL
+- Prisma
+- Railway
 
 ## Funcionalidades
 
@@ -49,6 +59,9 @@ Inicie o servidor
   npm run start
 ```
 
+## Insomnia
+
+Dentro do projeto há uma pasta chamada `.insomnia`, dentro dela há o json que pode ser importado dentro do insomnia. Esse arquivo possui todas as rotas configuradas para o uso.
 
 ## Documentação da API
 
