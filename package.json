@@ -2,7 +2,7 @@
   "name": "surf-api",
   "version": "1.0.0",
   "description": "",
-  "main": "./build/server.js",
+  "main": "./app/build/server.js",
   "scripts": {
     "start": "node .",
     "dev": "ts-node src/server.ts",
