@@ -24,6 +24,7 @@ async function main(){
       console.log(`[SV] > Started server at ${address}`);
     });
   } catch (error) {
+    console.log(error);
     console.error('[SV] > An error occurred while initializing the server.');
     process.exit(1);
   }
