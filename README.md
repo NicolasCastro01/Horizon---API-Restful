@@ -142,9 +142,9 @@ Dentro do projeto há uma pasta chamada `.insomnia`, dentro dela há o json que 
 | :---------- | :--------- | :------------------------------------------ |
 | `batteryId`      | `string` | **Obrigatório**. O número da bateria que será adicionado a nova onda. |
 | `surfer_number`      | `string` | **Obrigatório**. O número do surfista que receberá a nota da nova onda. |
-| `partial_score_one`      | `string` | **Obrigatório**. A nota parcial um que será adicionado a nova onda. |
-| `partial_score_two`      | `string` | **Obrigatório**. A nota parcial dois que será adicionado a nova onda. |
-| `partial_score_three`      | `string` | **Obrigatório**. A nota parcial três que será adicionado a nova onda. |
+| `partial_score_one`      | `number` | **Obrigatório**. A nota parcial um que será adicionado a nova onda. |
+| `partial_score_two`      | `number` | **Obrigatório**. A nota parcial dois que será adicionado a nova onda. |
+| `partial_score_three`      | `number` | **Obrigatório**. A nota parcial três que será adicionado a nova onda. |
 
 #### Retorna o vencedor da bateria
 
@@ -165,3 +165,6 @@ Dentro do projeto há uma pasta chamada `.insomnia`, dentro dela há o json que 
 | Parâmetro   | Tipo       | Descrição                                   |
 | :---------- | :--------- | :------------------------------------------ |
 | `waveId`      | `string` | **Obrigatório**. O número da bateria que retornará o vencedor. |
+| `partial_score_one`      | `number` | **Obrigatório**. A nota parcial do surfista, conquistada na onda. |
+| `partial_score_two`      | `number` | **Obrigatório**. A nota parcial do surfista, conquistada na onda. |
+| `partial_score_three`      | `number` | **Obrigatório**. A nota parcial do surfista, conquistada na onda. |
