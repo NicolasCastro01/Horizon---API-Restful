@@ -3,7 +3,7 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "mysql"
   url      = env("DATABASE_URL")
 }
 
@@ -31,6 +31,7 @@ model BatterySurfer {
   Wave         Wave[]
 
   @@id([batteryId, surferNumber])
+  @@index([surferNumber], map: "battery_surfer_surfer_number_fkey")
   @@map("battery_surfer")
 }
 
@@ -41,6 +42,7 @@ model Wave {
   score               Score[]
   batterySurfer       BatterySurfer @relation(fields: [batterySurferId, batterySurferNumber], references: [batteryId, surferNumber], onDelete: Cascade)
 
+  @@index([batterySurferId, batterySurferNumber], map: "wave_battery_surfer_id_battery_surfer_number_fkey")
   @@map("wave")
 }
 
@@ -52,5 +54,6 @@ model Score {
   partialScoreThree Float  @map("partial_score_three")
   wave              Wave   @relation(fields: [waveId], references: [id], onDelete: Cascade)
 
+  @@index([waveId], map: "score_wave_id_fkey")
   @@map("score")
 }
