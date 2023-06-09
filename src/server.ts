@@ -14,13 +14,14 @@ server.register(BatteryRoute);
 server.register(WaveRoute);
 
 const port = parseInt(process.env.PORT || '3000', 10);
+const host = '0.0.0.0';
 
 async function main(){
   try {
     await prisma.$connect();
     console.log('[DB] > Connected!');
         
-    server.listen({ port }, (err, address) => {
+    server.listen({ port, host }, (err, address) => {
       console.log(`[SV] > Started server at ${address}`);
     });
   } catch (error) {
