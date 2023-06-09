@@ -1,0 +1,56 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Surfer {
+  number        Int             @id @unique @default(autoincrement())
+  name          String
+  country       String
+  batterySurfer BatterySurfer[]
+
+  @@map("surfer")
+}
+
+model Battery {
+  id            String          @id @unique @default(uuid())
+  batterySurfer BatterySurfer[]
+
+  @@map("battery")
+}
+
+model BatterySurfer {
+  surferNumber Int     @map("surfer_number")
+  batteryId    String  @map("battery_id")
+  battery      Battery @relation(fields: [batteryId], references: [id], onDelete: Cascade)
+  surfer       Surfer  @relation(fields: [surferNumber], references: [number], onDelete: Cascade)
+  Wave         Wave[]
+
+  @@id([batteryId, surferNumber])
+  @@map("battery_surfer")
+}
+
+model Wave {
+  id                  String        @id @unique @default(uuid())
+  batterySurferId     String        @map("battery_surfer_id")
+  batterySurferNumber Int           @map("battery_surfer_number")
+  score               Score[]
+  batterySurfer       BatterySurfer @relation(fields: [batterySurferId, batterySurferNumber], references: [batteryId, surferNumber], onDelete: Cascade)
+
+  @@map("wave")
+}
+
+model Score {
+  id                String @id @unique @default(uuid())
+  waveId            String @map("wave_id")
+  partialScoreOne   Float  @map("partial_score_one")
+  partialScoreTwo   Float  @map("partial_score_two")
+  partialScoreThree Float  @map("partial_score_three")
+  wave              Wave   @relation(fields: [waveId], references: [id], onDelete: Cascade)
+
+  @@map("score")
+}
