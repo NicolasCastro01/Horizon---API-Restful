@@ -2,12 +2,12 @@
   "name": "surf-api",
   "version": "1.0.0",
   "description": "",
-  "main": "./dist/server.js",
+  "main": "./build/server.js",
   "scripts": {
     "start": "node .",
     "dev": "ts-node src/server.ts",
-    "clean": "rm -rf ./dist && mkdir dist",
-    "build": "npm run clean && babel --extensions .ts ./src -d ./dist",
+    "clean": "rm -rf ./dist && rm -rf ./build",
+    "build": "npm run clean && tsc && babel ./build -d ./dist",
     "prepare": "husky install"
   },
   "keywords": [],
